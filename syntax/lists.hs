@@ -32,4 +32,3 @@ revert2 :: [t] -> [t]
 revert2 [] = []
 revert2 (x:xs) = revert2 xs ++ [x]
 --https://stackoverflow.com/questions/53123008/correct-way-to-add-an-element-to-the-end-of-a-list
-
