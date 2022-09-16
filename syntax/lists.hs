@@ -32,3 +32,17 @@ revert2 :: [t] -> [t]
 revert2 [] = []
 revert2 (x:xs) = revert2 xs ++ [x]
 --https://stackoverflow.com/questions/53123008/correct-way-to-add-an-element-to-the-end-of-a-list
+
+--set theory syntax
+get_numbers :: [Int]
+get_numbers = [x | x <- [1, 2, 3]]
+
+get_numbers_plus_one :: [Int]
+get_numbers_plus_one = [x+1 | x <- [1, 2, 3]]
+
+get_numbers_from_one_to_ten :: [Int]
+get_numbers_from_one_to_ten = [x | x <- [1..10]]
+
+
+get_multiples_of_two :: [Int]
+get_multiples_of_two = [x | x <- [1..10], mod x 2 == 0]
