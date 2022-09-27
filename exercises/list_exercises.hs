@@ -42,3 +42,21 @@ order_aux (x:xs) a l | (a < x) = order_aux xs a (x:l)
 reverse2 :: [Int] -> [Int] -> [Int]
 reverse2 [x] l = x:l
 reverse2 (x:xs) l = reverse2 xs (x:l)
+
+--sorting 2.0
+get_greater_number :: [Int] -> Int
+get_greater_number [x] = x
+get_greater_number (x:xs) = let a = get_greater_number xs
+                        in if a > x then a else x
+
+order_aux2 :: [Int] -> [Int] -> [Int]
+order_aux2 [x] b = x:b 
+order_aux2 a b = let greater = get_greater_number a
+    in order_aux2 (filter (\e -> e /= greater) a) (greater:b)
+
+order_list :: [Int] -> [Int]
+order_list [x] = [x]
+order_list a = order_aux2 a []    
+    
+
+
