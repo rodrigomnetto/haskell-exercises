@@ -46,3 +46,8 @@ get_numbers_from_one_to_ten = [x | x <- [1..10]]
 
 get_multiples_of_two :: [Int]
 get_multiples_of_two = [x | x <- [1..10], mod x 2 == 0]
+
+--head - returns first element
+--tail - returns list without head
+--last - returns last element
+--init - returns list without last element

@@ -1,0 +1,1 @@
+f_lambda = \x -> (x * x) --lambda expression
