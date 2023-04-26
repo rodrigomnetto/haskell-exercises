@@ -1,3 +1,5 @@
+import Data.Char
+
 get_size [] = 0
 get_size (x:xs) = get_size(xs) + 1
 
@@ -51,3 +53,69 @@ get_multiples_of_two = [x | x <- [1..10], mod x 2 == 0]
 --tail - returns list without head
 --last - returns last element
 --init - returns list without last element
+
+--comprehension notation -> construct new sets from existing sets.
+new_set :: [Int]
+new_set = [x^2 | x <- [1..5]]
+
+generator :: [Int]
+generator = [1..5]
+
+concat_list :: [[a]] -> [a]
+concat_list x = [f | xs <- x, f <- xs]
+
+--generate permutations between lists
+permut :: [a] -> [a] -> [(a, a)]
+permut a b = [(x, y) | x <- a, y <- b] 
+
+--generate prime numbers
+is_prime :: Int -> Bool
+is_prime n = [x | x <- [1..n], (mod n x) == 0] == [1, n]
+
+primes :: Int -> [Int]
+primes n = [x | x <- [1..n], is_prime x]
+
+--ceaser cipher exercise
+let2int :: Char -> Int
+let2int c = ord c - ord 'a'
+
+int2let :: Int -> Char
+int2let i = chr (ord 'a' + i)
+
+mods :: [Int]
+mods = [mod (x+2) 26 | x <- [0..25]]
+
+encode :: String -> Int -> String
+encode chs n = [int2let (mod ((let2int x) + n) 26) | x <- chs]
+
+decode :: String -> Int -> String
+decode chs n = encode chs (negate n)
+
+--exercises
+
+--2
+replicate2 :: Int -> a -> [a]
+replicate2 n j = [j | x <- [1..n]]
+
+--3 x^2 + y^2 = z^2
+
+pyths :: Int -> [(Int, Int, Int)]
+pyths max = [(x, y, sum x y) | x <- [1..max], y <- [1..max], elem (sum x y) sqrs]
+    where 
+        sum x y = (x^2) + (y^2)
+        sqrs = [s^2 | s <- [1..max]]  
+
+
+--7 scalar product
+scalarproduct :: [Int] -> [Int] -> Int
+scalarproduct a b = sum [ x*y | (x,y) <- (zip a b)]
+
+
+
+
+
+
+
+
+
+
